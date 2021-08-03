@@ -16,7 +16,7 @@ locals {
   otl_server_listening_port = var.otl_server_listening_port
   otl_server_tunneling_port = var.otl_server_tunneling_port
   log_driver                = "awslogs"
-  application_name          = "otl"
+  application_name          = "otls"
   log_group_name            = var.log_group_name
 }
 
@@ -51,7 +51,7 @@ resource "aws_ecs_task_definition" "this" {
           { name = "OTL_NETWORK_CIDRS", value = data.aws_vpc.this.cidr_block },
           { name = "OTL_NETWORK_IDS", value = trimsuffix(data.aws_vpc.this.id, "vpc-") },
           { name = "OTL_SERVER_PORT1", value = tostring(local.otl_server_listening_port) },
-          { name = "OTL_SERVER_PORT2", value = tostring(local.otl_server_listening_port) },
+          { name = "OTL_SERVER_PORT2", value = tostring(local.otl_server_tunneling_port) },
         ]
         logConfiguration = {
           logDriver = local.log_driver
