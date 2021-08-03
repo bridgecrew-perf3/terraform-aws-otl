@@ -16,7 +16,7 @@ locals {
   otl_server_listening_port = var.otl_server_listening_port
   otl_server_tunneling_port = var.otl_server_tunneling_port
   log_driver                = "awslogs"
-  application_name          = "otls"
+  application_name          = "otl"
   log_group_name            = var.log_group_name
 }
 
