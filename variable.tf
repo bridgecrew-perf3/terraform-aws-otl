@@ -82,3 +82,8 @@ variable "otl_server_tunneling_port" {
   default     = 7000
   description = "server tunneling port, that will be connect otl client"
 }
+
+variable "log_group_name" {
+  type = string
+  default = null
+}

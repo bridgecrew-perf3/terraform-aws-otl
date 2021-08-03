@@ -48,6 +48,11 @@ variable "image_pull_secret_arn" {
   }
 }
 
+variable "log_group_name" {
+  type = string
+  default = null
+}
+
 variable "cluster_id" {
   type    = string
   default = null
