@@ -49,7 +49,7 @@ resource "aws_ecs_task_definition" "this" {
         environment = [
           { name = "OTL_SERVER_HOST", value = local.proxy_url },
           { name = "OTL_NETWORK_CIDRS", value = data.aws_vpc.this.cidr_block },
-          { name = "OTL_NETWORK_IDS", value = trimsuffix(data.aws_vpc.this.id, "vpc-") },
+          { name = "OTL_NETWORK_IDS", value = trimprefix(data.aws_vpc.this.id, "vpc-") },
           { name = "OTL_SERVER_PORT1", value = tostring(local.otl_server_listening_port) },
           { name = "OTL_SERVER_PORT2", value = tostring(local.otl_server_tunneling_port) },
         ]
